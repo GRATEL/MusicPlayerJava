@@ -37,6 +37,21 @@ public class Album {
 
     public boolean addToPlayList(int trackNumber, LinkedList<Song> PlayList){
         int index = trackNumber -1;
-        if (index > 0 &&index <= )
+        if (index > 0 &&index <= this.songs.size()) {
+            PlayList.add(this.songs.get(index));
+            return true;
+        }
+        System.out.println("this album does not have song with tracknumber"+trackNumber);
+        return false;
+    }
+    public boolean addToPlaylist(String title, LinkedList<Song> Playlist){
+        for(Song checkedSong : this.songs){
+            if (checkedSong.getTitle().equals(title)){
+                Playlist.add(checkedSong);
+                return true;
+            }
+        }
+        System.out.println(title+"there is no such song in album");
+        return false;
     }
 }
